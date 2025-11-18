@@ -25,5 +25,9 @@ class Mood():
     elif self.compound >= 0.05:
       self.mood = "Positive"
       return "pos", self.compund
-  def display_mood(self):
-    #print(f
+  def display_mood(self, are_you_sure):
+    if are_you_sure == True:
+      continue
+    else:
+      return f"failed to display, check 'are you sure' is set to 'True' {str(are_you_sure)}"
+    print(f"Overall Mood: {self.mood}\n\nCompound: {self.compound}")
