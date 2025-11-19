@@ -13,7 +13,8 @@ class Mood():
     self.sentence = sentence
     self.score = {}
     self.compound = 0
-  def mood(self):
+    self.color = ""
+  def mood_test(self):
     self.score = self.sia.polarity_scores(self.sentence)
     self.compound = self.scores['compound']
     if self.compound == 0:
@@ -27,6 +28,8 @@ class Mood():
       return "pos", self.compund
   def display_mood(self, are_you_sure):
     if are_you_sure == True:
+      if self.mood == "":
+        self.mood_test(self)
       continue
     else:
       return f"failed to display, check 'are you sure' is set to 'True' {str(are_you_sure)}"
